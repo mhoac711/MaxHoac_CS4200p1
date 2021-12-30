@@ -1,0 +1,50 @@
+import java.util.Arrays;
+import java.util.Random;
+
+public class RandomPuzzle extends Puzzle {
+    public RandomPuzzle(){
+        createPuzzle();
+    }
+    /**
+     * Creates a new random 8 puzzle that is solvable
+     */
+    private void createPuzzle(){
+        boolean canSolve = false;
+        Integer[] board = new Integer[9];
+        Arrays.fill(board, -1);
+        int numFailed = 0;
+        int emptyPosition = 0;
+        while(!canSolve){
+            Random rand = new Random();
+            board = new Integer[9];
+            Arrays.fill(board, -1);
+            //Fill the spaces with random values between 0 and 9
+            for(int i = 0; i < board.length; ++i){
+                Integer tile = rand.nextInt(9);
+                //Check if valid puzzle
+                while(arrIndexOf(board,tile) != -1){
+                    tile = rand.nextInt(9);
+                }
+                if(tile.equals(0)) emptyPosition = i;
+                board[i] = tile;
+            }
+            //Runs the Puzzle classes checkSolvable function, returns true if inversions is even
+            canSolve = checkSolvable(board);
+            if(canSolve == false) numFailed++;
+        }
+        System.out.println("Amount of times failed: " + numFailed);
+        System.out.println("Empty Pos: " + emptyPosition);
+        setInitalState(board);
+        setInitialStateNode(new StateNode(board, board,0,"noop",null,emptyPosition));
+    }
+
+    /**
+     * Helper function for createPuzzle, used to find the index of `searchFor` within the array `arr`
+     */
+    private int arrIndexOf(Integer[] arr, Integer searchFor){
+        for(int i = 0; i < arr.length; ++i){
+            if(arr[i].equals(searchFor)) return i;
+        }
+        return -1;
+    }
+}
