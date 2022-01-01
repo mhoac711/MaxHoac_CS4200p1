@@ -12,7 +12,7 @@ public class EightPuzzle {
         boolean goodInput = false;
         Integer userInput = 1;
         String start = "8-Puzzle Problem\n";
-        start += "Please select an option:\n";
+        start += "Select an option:\n";
         start += "1) Random Puzzle\n2) User-Defined Puzzle\n3) Exit";
         while(!goodInput){
             System.out.println(start);
@@ -35,7 +35,7 @@ public class EightPuzzle {
             case 2:
                 test.userInputPuzzle();
                 break;
-            case 4:
+            case 3:
                 System.exit(0);
             default:
                 break;
@@ -45,17 +45,17 @@ public class EightPuzzle {
     public void randomPuzzle(){
         Map<Integer,ArrayList<SearchData>> runtimeData = new TreeMap<>();
         int timesRun = -1;
-        System.out.println("How many times do you want to run this?");
+        System.out.println("How many times do you want this to run?");
         Scanner scanner = new Scanner(System.in);
         while(timesRun < 1){
             String num = scanner.nextLine();
             try{
                 timesRun = Integer.parseInt(num);
             }catch(NumberFormatException e){
-                System.out.println("That was not a number.");
+                System.out.println("Not a number.");
                 timesRun = -1;
             }
-            if(timesRun < 1) System.out.println("How many times do you want to run this? (Must be greater than 0)");
+            if(timesRun < 1) System.out.println("How many times do you want this to run?? (Must be greater than 0)");
         }
         File random = new File(timesRun + "_Random_Test_Cases.txt");
         BufferedWriter bw = null;

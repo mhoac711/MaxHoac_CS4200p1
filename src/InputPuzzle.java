@@ -14,7 +14,7 @@ public class InputPuzzle extends Puzzle {
             try{
                 val = Integer.parseInt(Character.toString(sPuzzle.charAt(i)));
             }catch(NumberFormatException e){
-                System.out.println("The string contained a non-number character, try again");
+                System.out.println("The string contained an incorrect character, please try again");
                 return false;
             }
             if(val == 0) emptyPos = i;
@@ -28,12 +28,12 @@ public class InputPuzzle extends Puzzle {
             if(arrIndexOf(puzzle,val) == -1)
                 puzzle[i] = val;
             else{
-                System.out.println("The string contains duplicate numbers");
+                System.out.println("The string has duplicate numbers");
                 return false;
             }
         }
         boolean canSolve = checkSolvable(puzzle);
-        if(canSolve == false) System.out.println("This puzzle is not solvable.");
+        if(canSolve == false) System.out.println("This puzzle cannot be solved");
         else{
             System.out.println("Empty Pos: " + emptyPos);
             setInitalState(puzzle);
@@ -42,7 +42,7 @@ public class InputPuzzle extends Puzzle {
         return canSolve;
     }
     /**
-     * Helper function for createPuzzle, used to find the index of `searchFor` within the array `arr`
+     * Function for createPuzzle, used to find the index of `searchFor` within the array `arr`
      */
     private int arrIndexOf(Integer[] arr, Integer searchFor){
         for(int i = 0; i < arr.length; ++i){

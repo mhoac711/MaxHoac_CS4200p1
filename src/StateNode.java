@@ -66,8 +66,8 @@ public class StateNode {
     }
     /**
      * Checks if the action will keep the empty pos in bounds of the state
-     * Moving up or down requires the index to be in bounds for i+-3
-     * Moving left and right requires the index to be i%3!=0 and i+1%3!=0
+     * The action of moving up or down requires the index to be in bounds for i+-3
+     * The action of moving left or right requires the index to be i%3!=0 and i+1%3!=0
      */
     public boolean inBounds(String action){
         Integer[] currentBoard = currentState;
@@ -92,9 +92,8 @@ public class StateNode {
         return true;
     }
     /**
-     * Generates a child node given a specific action. Returns the child node 
-     * that will have the empty tile moved and will have its step cost increased
-     * linearly.
+     * Function that generates a child node given specific action; this will return the child
+     * node with the empty tile moved and an increased step cost.
      */
     public StateNode generateNode(String action){
         StateNode node;
@@ -132,7 +131,7 @@ public class StateNode {
         return node;
     }
     /**
-     * Helper function for generateNode, used to swap the empty tile with another 
+     * Function used to swap the empty tile with another existing tile
      */
     private Integer[] swap(Integer[] arr, int pos1, int pos2){
         Integer temp = arr[pos1];
@@ -142,8 +141,7 @@ public class StateNode {
     }
 
     /**
-     * Generates all the children for this specific node by doing all possible
-     * actions. Up, down, left, right
+     * Generates all children for a specific node by activating all possible actions
      */
     public ArrayList<StateNode> expandCurrentNode(){
         ArrayList<StateNode> successorList = new ArrayList<>();
@@ -159,8 +157,7 @@ public class StateNode {
     }
 
     /**
-     * The hash code for this object is simply the hash code for the current state
-     * of the board. Uses the Arrays built in hash code function
+     * This hashcode resembles the current state of the current board using the arrays build in the hash code fucntion
      */
     @Override
     public int hashCode() {
@@ -168,7 +165,7 @@ public class StateNode {
     }
 
     /**
-     * Two nodes are equal if the current state of their boards are equal
+     * If two nodes are equal then the current state of the board is equal
      */
     @Override
     public boolean equals(Object obj) {
@@ -186,7 +183,7 @@ public class StateNode {
     }
 
     /**
-     * Prints out the puzzle as a matrix
+     * Functions that prints out puzzle in the form of a matrix
      */
     @Override
     public String toString(){

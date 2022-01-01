@@ -1,15 +1,10 @@
-
-/**
- *
- * @author andrew
- */
 public class Puzzle {
     //Fields
     private Integer[] initialState = new Integer[9];
     private StateNode initialStateNode;
 
     final private Integer[] goalState = {0,1,2,3,4,5,6,7,8};
-    //Getters and Setters for fields
+    //Getters and Setters
     public void setInitalState(Integer[] state){
         initialState = state;
     }
@@ -30,10 +25,7 @@ public class Puzzle {
         return false;
     }
     /**
-     * Checks to see if a puzzle is solvable. A solvable puzzle has a positive
-     * of inversions. An inversion is when a tile with a greater number on it
-     * precedes a tile with a smaller number
-     * Returns true if inversions are even
+     * Checks if the puzzle is solvable by checking the number of inversions being made
      */
     public boolean checkSolvable(Integer[] board){
         int inversions = 0;
