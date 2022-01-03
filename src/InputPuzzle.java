@@ -37,7 +37,7 @@ public class InputPuzzle extends Puzzle {
         else{
             System.out.println("Empty Pos: " + emptyPos);
             setInitalState(puzzle);
-            setInitialStateNode(new StateNode(puzzle, puzzle,0,"noop",null,emptyPos));
+            setInitialStateNode(new StateNode(puzzle, puzzle,0,"none",null,emptyPos));
         }
         return canSolve;
     }

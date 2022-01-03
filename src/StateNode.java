@@ -16,7 +16,7 @@ public class StateNode {
         Arrays.fill(initalState,-1);
         currentState = initalState;
         cost = 0;
-        actionTaken = "noop";
+        actionTaken = "none";
         emptyPosition = 0;
     }
 
@@ -66,8 +66,8 @@ public class StateNode {
     }
     /**
      * Checks if the action will keep the empty pos in bounds of the state
-     * The action of moving up or down requires the index to be in bounds for i+-3
-     * The action of moving left or right requires the index to be i%3!=0 and i+1%3!=0
+     * Moving up or down requires the index to be in bounds for i+-3
+     * Moving left or right requires the index to be i%3!=0 and i+1%3!=0
      */
     public boolean inBounds(String action){
         Integer[] currentBoard = currentState;

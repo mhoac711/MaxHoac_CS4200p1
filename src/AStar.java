@@ -9,8 +9,8 @@ public class AStar {
     private final Integer[] goal = {0,1,2,3,4,5,6,7,8};
     /**
      * A* algorithm that uses either the misplaced tile or the sum of distance heuristic.
-     * The priority queue and the lambda function is used to sort costs. It will also expand children
-     * of the smallest cost first and add it to the explored set, preventing duplicate states
+     * The priority queue and the lambda function will sort costs and expand children
+     * of the lowest cost first and add it to the explored set, preventing duplicate states
      */
     public StateNode runAStar(StateNode initialState, boolean isH1, boolean print){
         int searchCost = 0;
@@ -57,7 +57,7 @@ public class AStar {
     }
 
     /**
-     * A* (h2) this function measures the sum of the distaqnce from the tile to the goal and returns a sum of the distances
+     * A* (h2) this function measures the sum of the distance from the tile to the goal and returns a sum of the distances
      */
     public int sumOfDistance(StateNode node){
         int sum = 0;

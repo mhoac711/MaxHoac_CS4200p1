@@ -136,10 +136,10 @@ public class EightPuzzle {
         long total2 = end2 - start2;
         System.out.println("FINISHED!");
         System.out.println("\nSolved Using H1\nDepth: " + goalNode1.getCost() + "\nSearch Cost: " + goalNode1.getSearchCost() + "\nTotal Time: " + total1 + " ms");
-        System.out.println("\nSolved Using H2\nDepth: " + goalNode2.getCost() + "\nSearch Cost: " + goalNode2.getSearchCost() + "1\nTotal Time: " + total2 + " ms"+"\n");
+        System.out.println("\nSolved Using H2\nDepth: " + goalNode2.getCost() + "\nSearch Cost: " + goalNode2.getSearchCost() + "\nTotal Time: " + total2 + " ms"+"\n");
         if(goalNode1.getCost() != goalNode2.getCost()){
             System.out.println(goalNode1.getCost() + " != " + goalNode2.getCost());
-            System.out.println("The depths calculated from the heuristics are not the same!");
+            System.out.println("The depths calculated are not the same!");
             System.exit(0);
         }
         return new SearchData(goalNode1.getCost(),goalNode1.getSearchCost(),total1,goalNode2.getSearchCost(), total2);
